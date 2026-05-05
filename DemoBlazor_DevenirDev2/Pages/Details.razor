@@ -1,0 +1,23 @@
+﻿@* Définir le paramètres de la route *@
+@page "/details/{id:int}"
+@* @page "/details/{isCorrect:bool}"
+@page "/details/{IdGuid:guid}"
+@page "/details/{IdLong:long}" *@
+
+<h3>Details</h3>
+
+
+@if(Product != null)
+{
+    <div class="card mx-auto w-75">
+        <h3>@Product.Name</h3>
+        <img src="@Product.ImageUrl" alt="" width="300"/>
+        <p>@Product.Price €</p>
+        <p>@Product.Id</p>
+    </div>
+}else
+{
+    <p>Une erreur est survenue</p>
+    <NavLink href="/">Home</NavLink>
+}
+

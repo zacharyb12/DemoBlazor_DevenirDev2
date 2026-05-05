@@ -1,0 +1,15 @@
+﻿@using DemoBlazor_DevenirDev2.Models
+@page "/listproducts"
+
+<h3>ListProduct</h3>
+
+@foreach(Product p in products)
+{
+    <div class="card m-3 p-3">
+        <h3>@p.Name</h3>
+        <p>@p.Price</p>
+        <img src="@p.ImageUrl" alt="" width="200"/>
+
+        <button class="btn btn-outline-success" @onclick="() => NavigateToDetails(p.Id)">Details</button>
+    </div>
+}

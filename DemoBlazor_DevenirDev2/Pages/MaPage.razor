@@ -1,0 +1,20 @@
+﻿@page "/mapage"
+
+<h3>MaPage</h3>
+
+<p>Name : @Name</p>
+<p>Age : @Age</p>
+
+@foreach(string toto in Languages)
+{
+    <p>@toto</p>
+}
+
+@code {
+
+    public string Name { get; set; } = "Toto";
+
+    public int Age { get; set; } = 60;
+
+    public string[] Languages { get; set; } = ["Français", "Portugais"];
+}
