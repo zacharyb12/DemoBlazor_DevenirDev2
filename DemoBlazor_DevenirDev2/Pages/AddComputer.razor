@@ -1,0 +1,52 @@
+﻿@page "/add-computer"
+
+<h3>AddComputer</h3>
+<NavLink href="/list-computer">List Computer</NavLink>
+
+<EditForm Model="@NewComputer" OnValidSubmit="Add">
+    @*Utilisation des data-annotations*@
+    <DataAnnotationsValidator/>
+
+
+    <div>
+        <label>Name</label>
+        <input type="text" @bind-value="NewComputer.Name"/>
+        @*affichage du message d'erreur d'une propriétés*@
+        <ValidationMessage For="() => NewComputer.Name"/>
+    </div>
+
+    <div>
+        <label>Marque</label>
+        <input type="text" @bind-value="NewComputer.Marque" />
+
+    </div>
+
+    <div>
+        <label>Ram</label>
+        <input type="number" @bind-value="NewComputer.Ram" />
+
+    </div>
+
+    <div>
+        <label>Memory</label>
+        <input type="number" @bind-value="NewComputer.Memory" />
+
+    </div>
+
+    <div>
+        <label>Price</label>
+        <input type="number" step="0.1" @bind-value="NewComputer.Price" />
+
+    </div>
+
+    <div>
+        <label>Image</label>
+        <input type="text" @bind-value="NewComputer.ImageUrl" />
+
+    </div>
+    @*affichage de toutes les erreurs ensembles*@
+    <ValidationSummary/>
+
+    <button type="submit">Add</button>
+
+</EditForm>

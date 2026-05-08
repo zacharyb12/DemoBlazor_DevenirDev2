@@ -1,0 +1,21 @@
+﻿@page "/details-computer/{id:int}"
+
+<h3>DetailsComputer</h3>
+
+<div>
+    <h1>@ComputerToShow.Name</h1>
+
+    <div>
+        <p>@ComputerToShow.Marque</p>
+        <p>@ComputerToShow.Memory</p>
+        <p>@ComputerToShow.Ram</p>
+    </div>
+
+    <img src="@ComputerToShow.ImageUrl"/>
+    <div>
+        <p>@ComputerToShow.Price</p>
+        <p>@ComputerToShow.Id</p>
+    </div>
+    <button class="btn btn-outline-primary" type="button" @onclick="() => NavigateToUpdate(ComputerToShow.Id)">Update</button>
+
+</div>

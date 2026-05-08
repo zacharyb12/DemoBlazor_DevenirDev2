@@ -1,0 +1,30 @@
+﻿@page "/list-computer"
+@using DemoBlazor_DevenirDev2.Models
+
+<h3>ListComputer</h3>
+
+<NavLink href="/add-computer">Add Computer</NavLink>
+
+<div>
+
+    <input type="text" @oninput="OnSearchInput" @bind-value="searchValue" />
+
+    @foreach(Computer c in ComputersFiltered)
+    {
+        <div class="d-flex shadow w-75 mx-auto my-3">
+            <div class="w-50">
+                <h4>@c.Name</h4>
+                <p>@c.Marque</p>
+                <p>@c.Memory T</p>
+                <p>@c.Ram Ram</p>
+                <p>@c.Price</p>
+            </div>
+            <div class=" text-center">
+                <img src="@c.ImageUrl" />
+                <button @onclick="() => NavigateToDetails(c.Id)" class="btn btn-outline-dark">Details</button>
+            </div>
+        </div>
+
+
+    }
+</div>

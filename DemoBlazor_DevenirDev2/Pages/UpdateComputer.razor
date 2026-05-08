@@ -1,0 +1,37 @@
+﻿@page "/update-computer/{id:int}"
+
+<h3>UpdateComputer</h3>
+
+<EditForm Model="@UpdatedComputer" OnValidSubmit="Update">
+    <DataAnnotationsValidator/>
+    <ValidationSummary/>
+
+    <div>
+        <label>Name</label>
+        <input type="text" @bind-value="@UpdatedComputer.Name"/>
+    </div>
+
+    <div>
+        <label>Memory</label>
+        <input type="number" @bind-value="@UpdatedComputer.Memory" />
+    </div>
+
+    <div>
+        <label>Ram</label>
+        <input type="number" @bind-value="@UpdatedComputer.Ram" />
+    </div>
+
+    <div>
+        <label>Price</label>
+        <input type="number" step="0.10" @bind-value="@UpdatedComputer.Price" />
+    </div>
+
+    <div>
+        <label>Image</label>
+        <input type="text" @bind-value="@UpdatedComputer.ImageUrl" />
+    </div>
+
+    <button type="submit">Update</button>
+    <button type="button" @onclick="DeleteComputer">Delete</button>
+
+</EditForm>
