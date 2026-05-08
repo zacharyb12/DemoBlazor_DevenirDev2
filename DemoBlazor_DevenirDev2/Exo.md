@@ -1,43 +1,65 @@
-﻿# Exercice Blazor
+﻿# Partie 1 : Le Modèle de Données
+Créez une classe Service dans un dossier Models :
 
-## Création d'une app
+C#
+public class Service
+{
+    public int Id { get; set; }
+    public string Type { get; set; } // Ex: Transport, Aide à domicile, Soins
+    public DateTime DateService { get; set; }
+    public string Informations { get; set; }
+    public string ImageUrl { get; set; }
+    public bool Actif { get; set; }
+    public int AccompagnateurId { get; set; }
+    public List<string> Participants { get; set; } = new();
+}
 
-# Model : Service
+# Partie 2 : Logique Métier (CRUD)
+Créez un service Blazor (ServiceService.cs et IService) qui gère une liste en mémoire (List<Service>) avec les méthodes suivantes :
 
-```csharp
-    public class Service
-    {
-        public int Id { get; set; }
+Create : Ajoute un service (générer l'Id automatiquement).
 
-        public string Type { get; set; }
+GetAll : Retourne la liste complète.
 
-        public DateTime DateService { get; set; }
+GetById : Récupère un service spécifique via son Id.
 
-        public string Informations { get; set; }
+Update : Met à jour les propriétés d'un service existant.
 
-        public   string ImageUrl { get; set; }
+Update : Met à jour le status d'un service existant.
 
-        public bool Actif { get; set; }
+Delete : Supprime un service de la liste via son Id.
 
-        public int AccompagnateurId { get; set; }
+# Partie 3 : Interface Utilisateur (UI)
+1. Page d'accueil (Index.razor)
+Présentation textuelle du projet.
 
-        public List<string> Participants { get; set; } = new();
-    }
+Un bouton de navigation rapide vers la liste des services.
 
+2. Liste des Services
+Affichage sous forme de Tableau ou de Cards.
 
-```
+Afficher l'image (ImageUrl), le type et la date.
 
-## Crud Service
+Optionnel : Ajouter une barre de recherche pour filtrer par Type.
 
-- Ajout d'un service : AccompagnateurID fictif
-- Recupération d'un service : Id
-- Modification d'un service : Id et modèle
-- Suppression d'un service : Id
+3. Formulaire d'Ajout & Modification
+Utilisation du composant <EditForm> avec validation simple.
 
-## Affichage
+Ajout : Le AccompagnateurId peut être saisi en dur (ex: 1) par défaut.
 
-- Liste Des services : Permettre 
-- Ajout d'un service : AccompagnateurID en dur
-- Modification : Un Boutton pour modifier le status , ou permettre de modifier le contenu
-- Suppression : Sur la page update ajouter un boutton suppression
-- Homepage : Présentation de projet 
+Modification :
+
+Possibilité de modifier toutes les informations.
+
+Ajouter un bouton spécifique "Toggle Status" pour activer/désactiver le service (Actif true/false).
+
+4. Suppression
+Ajouter un bouton de suppression sur la page de modification ou directement dans la liste (avec une boîte de dialogue de confirmation).
+
+# Bonus (Pour aller plus loin)
+Validation : Utiliser les DataAnnotations ([Required], [StringLength]).
+
+Design : Utiliser Bootstrap ou css.
+
+Filtre temps réel : Implémenter la recherche automatique à la saisie (événement @oninput).
+
